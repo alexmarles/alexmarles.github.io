@@ -1,0 +1,16 @@
+{
+  "name": "alexmarles",
+  "version": "0.0.0",
+  "homepage": "https://github.com/alexmarles/alexmarles",
+  "authors": [
+    "Àlex Marlés"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
