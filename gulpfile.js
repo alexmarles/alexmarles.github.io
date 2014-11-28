@@ -10,7 +10,11 @@ var gulp       = require("gulp"),
     connect    = require("gulp-connect"),
     watch      = require("gulp-watch"),
     notify     = require("gulp-notify"),
-    env        = process.env.NODE_ENV || "development";
+    config    = {
+      env      : process.env.NODE_ENV || "development",
+      sassPath : './src/css',
+      bowerDir : './bower_components'
+    };
 
 // Notify errors in JSHint
 function notifyJS (file) {
@@ -41,9 +45,9 @@ gulp.task ('scripts', function () {
     .pipe (jshint ())
     .pipe (notify (notifyJS))
     .pipe (concat ('application.js'))
-    .pipe (gulpIf (env === 'production', ngAnnotate ({ dynamic: false })))
-    .pipe (gulpIf (env === 'production', uglify ()))
-    .pipe (gulp.dest ('./web/js/'))
+    .pipe (gulpIf (config.env === 'production', ngAnnotate ({ dynamic: false })))
+    .pipe (gulpIf (config.env === 'production', uglify ()))
+    .pipe (gulp.dest ('./public/js'))
     .pipe (connect.reload ());
 });
 
@@ -56,39 +60,52 @@ gulp.task ('html', function () {
         debut: false
       }
     }))
-    .pipe (gulp.dest ('./web/'))
+    .pipe (gulp.dest ('./public'))
     .pipe (connect.reload ());
 });
 
 // Compiles Sass stylesheets
 gulp.task ('styles', function () {
   return gulp.src ('./src/css/application.sass')
-    .pipe (sass ())
-    .pipe (gulpIf (env === 'production', minifyCSS ()))
-    .pipe (gulp.dest ('./web/style/'))
+    .pipe (sass ({
+      loadPath: [
+        config.sassPath,
+        config.bowerDir + '/bootstrap-sass-official/assets/stylesheets',
+        config.bowerDir + '/fontawesome/scss'
+      ]}).on ('error', notify.onError (function (error) {
+        return 'Error: ' + error.message;
+    })))
+    .pipe (gulpIf (config.env === 'production', minifyCSS ()))
+    .pipe (gulp.dest ('./public/style'))
     .pipe (connect.reload ());
 });
 
-// Move locale files
+// Move locale files to public directory
 gulp.task ('locales', function () {
   return gulp.src ('./src/locales/**/*.json')
     .pipe (jshint ())
     .pipe (notify (notifyJS))
-    .pipe (gulp.dest ('./web/locales/'))
+    .pipe (gulp.dest ('./public/locales'))
     .pipe (connect.reload ());
 });
 
-// Serves the web sources at port 8000
+// Moves FontAwesome icons to public directory
+gulp.task ('icons', function () {
+  return gulp.src (config.bowerDir + '/fontawesome/fonts/**.*')
+    .pipe(gulp.dest('./public/fonts'));
+});
+
+// Serves the public directory at port 8000
 gulp.task ('serve', function () {
   connect.server ({
-    root: './web/',
+    root: './public/',
     port: 8000,
     livereload: true
   });
 });
 
-// Builds the web sources
-gulp.task ('build', ['scripts', 'locales', 'styles', 'html']);
+// Builds the public directory
+gulp.task ('build', ['icons', 'scripts', 'locales', 'styles', 'html']);
 
 // Runs everything
 gulp.task ('default', ['serve', 'build'], function () {
