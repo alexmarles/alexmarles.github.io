@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alexmarles/alexmarles.git"
+    "url": "https://github.com/alexmarles/alexmarles.github.io.git"
   },
   "author": "Àlex Marlés",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/alexmarles/alexmarles/issues"
+    "url": "https://github.com/alexmarles/alexmarles.github.io/issues"
   },
-  "homepage": "https://github.com/alexmarles/alexmarles",
+  "homepage": "https://github.com/alexmarles/alexmarles.github.io",
   "dependencies": {
     "gulp": "^3.8.10",
     "gulp-concat": "^2.4.2",
