@@ -4,5 +4,29 @@ html
     meta(charset='utf-8')
     title Àlex Marlés
     link(rel='stylesheet', type='text/css', href='./style/application.css')
+    link(rel='stylesheet', type='text/css', href='./stanley/css/main.css')
   body
-    h1 Àlex Marlés
+    .navbar.navbar-inverse.navbar-static-top
+      .container
+        .navbar-header
+          a.navbar-brand(href="/") Àlex Marlés
+
+    #ww
+      .container
+        .row
+          .col-lg8.centered
+            .circular.user
+              i.fa.fa-user.fa-5x
+            h1 Coming soon...
+
+    .container.pt
+      .row.mt.centered
+        .col-lg-2.col-lg-offset-3
+          a(href="http://twitter.com/alexmarles", target="_blank")
+            .circular.social.twitter
+        .col-lg-2
+          a(href="https://www.linkedin.com/in/alexmarles", target="_blank")
+            .circular.social.linkedin
+        .col-lg-2
+          a(href="http://serious.io/alex", target="_blank")
+            .circular.social.serious

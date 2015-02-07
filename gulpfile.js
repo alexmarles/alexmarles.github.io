@@ -95,6 +95,12 @@ gulp.task ('icons', function () {
     .pipe(gulp.dest('./public/fonts'));
 });
 
+// Copies images to public directory
+gulp.task ('images', function () {
+  return gulp.src ('./src/img/**.*')
+    .pipe(gulp.dest('./public/images'));
+});
+
 // Serves the public directory at port 8000
 gulp.task ('serve', function () {
   connect.server ({
@@ -105,7 +111,7 @@ gulp.task ('serve', function () {
 });
 
 // Builds the public directory
-gulp.task ('build', ['icons', 'scripts', 'locales', 'styles', 'html']);
+gulp.task ('build', ['images', 'icons', 'scripts', 'locales', 'styles', 'html']);
 
 // Runs everything
 gulp.task ('default', ['serve', 'build'], function () {
@@ -114,4 +120,5 @@ gulp.task ('default', ['serve', 'build'], function () {
   gulp.watch (['./src/locales/**/*.json'], ['locales']);
   gulp.watch (['./src/css/**/*.sass'], ['styles']);
   gulp.watch (['./src/views/**/*.jade'], ['html']);
+  gulp.watch (['./src/img/**.*'], ['images']);
 });

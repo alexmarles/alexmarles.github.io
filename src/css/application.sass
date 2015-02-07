@@ -1,1 +1,31 @@
 @import 'bootstrap'
+@import 'font-awesome'
+
+.navbar-inverse
+  padding-top: 0
+
+.circular
+  margin: 0 auto
+  width: 150px
+  height: 150px
+  border-radius: 75px
+  -webkit-border-radius: 75px
+  -moz-border-radius: 75px
+  background-size: 150px
+  &.user
+    background: #fff
+    color: #2c3e50
+  &.social
+    transition: background 0.25s ease
+    background-position: 0%
+    &.twitter
+      background: url(../images/twitter.png) no-repeat
+    &.linkedin
+      background: url(../images/linkedin.png) no-repeat
+    &.serious
+      background: url(../images/srs.png) no-repeat
+    &:hover
+      background-position: 100%
+  i.fa
+    margin-top: 40px
+
