@@ -12,8 +12,8 @@ var gulp       = require("gulp"),
     notify     = require("gulp-notify"),
     config    = {
       env      : process.env.NODE_ENV || "development",
-      sassPath : './src/css',
-      bowerDir : './bower_components'
+      sassPath : 'src/css/',
+      bowerDir : 'bower_components/'
     };
 
 // Notify errors in JSHint
@@ -41,70 +41,70 @@ gulp.task ('gulpfile', function () {
 
 // Compiles Javascript scripts
 gulp.task ('scripts', function () {
-  return gulp.src ('./src/js/**/*.js')
+  return gulp.src ('src/js/**/*.js')
     .pipe (jshint ())
     .pipe (notify (notifyJS))
     .pipe (concat ('application.js'))
     .pipe (gulpIf (config.env === 'production', ngAnnotate ({ dynamic: false })))
     .pipe (gulpIf (config.env === 'production', uglify ()))
-    .pipe (gulp.dest ('./public/js'))
+    .pipe (gulp.dest ('public/js/'))
     .pipe (connect.reload ());
 });
 
 // Compiles Jade templates
 gulp.task ('html', function () {
-  return gulp.src ('./src/views/**/*.jade')
+  return gulp.src ('src/views/**/*.jade')
     .pipe (jade ({
       pretty: true,
       data: {
-        debut: false
+        debug: false
       }
     }))
-    .pipe (gulp.dest ('./public'))
+    .pipe (gulp.dest ('public/'))
     .pipe (connect.reload ());
 });
 
 // Compiles Sass stylesheets
 gulp.task ('styles', function () {
-  return gulp.src ('./src/css/application.sass')
+  return gulp.src ('src/css/application.sass')
     .pipe (sass ({
       loadPath: [
         config.sassPath,
-        config.bowerDir + '/bootstrap-sass-official/assets/stylesheets',
-        config.bowerDir + '/fontawesome/scss'
+        config.bowerDir + 'bootstrap-sass-official/assets/stylesheets',
+        config.bowerDir + 'fontawesome/scss'
       ]}).on ('error', notify.onError (function (error) {
         return 'Error: ' + error.message;
     })))
     .pipe (gulpIf (config.env === 'production', minifyCSS ()))
-    .pipe (gulp.dest ('./public/style'))
+    .pipe (gulp.dest ('public/style/'))
     .pipe (connect.reload ());
 });
 
 // Move locale files to public directory
 gulp.task ('locales', function () {
-  return gulp.src ('./src/locales/**/*.json')
+  return gulp.src ('src/locales/**/*.json')
     .pipe (jshint ())
     .pipe (notify (notifyJS))
-    .pipe (gulp.dest ('./public/locales'))
+    .pipe (gulp.dest ('public/locales/'))
     .pipe (connect.reload ());
 });
 
 // Moves FontAwesome icons to public directory
 gulp.task ('icons', function () {
-  return gulp.src (config.bowerDir + '/fontawesome/fonts/**.*')
-    .pipe(gulp.dest('./public/fonts'));
+  return gulp.src (config.bowerDir + 'fontawesome/fonts/**.*')
+    .pipe(gulp.dest('public/fonts/'));
 });
 
 // Copies images to public directory
 gulp.task ('images', function () {
-  return gulp.src ('./src/img/**.*')
-    .pipe(gulp.dest('./public/images'));
+  return gulp.src ('src/img/**.*')
+    .pipe(gulp.dest('public/images/'));
 });
 
 // Serves the public directory at port 8000
 gulp.task ('serve', function () {
   connect.server ({
-    root: './public/',
+    root: 'public/',
     port: 8000,
     livereload: true
   });
@@ -116,9 +116,9 @@ gulp.task ('build', ['images', 'icons', 'scripts', 'locales', 'styles', 'html'])
 // Runs everything
 gulp.task ('default', ['serve', 'build'], function () {
   gulp.watch (['gulpfile.js'], ['gulpfile']);
-  gulp.watch (['./src/js/**/*.js'], ['scripts']);
-  gulp.watch (['./src/locales/**/*.json'], ['locales']);
-  gulp.watch (['./src/css/**/*.sass'], ['styles']);
-  gulp.watch (['./src/views/**/*.jade'], ['html']);
-  gulp.watch (['./src/img/**.*'], ['images']);
+  gulp.watch (['src/js/**/*.js'], ['scripts']);
+  gulp.watch (['src/locales/**/*.json'], ['locales']);
+  gulp.watch (['src/css/**/*.sass'], ['styles']);
+  gulp.watch (['src/views/**/*.jade'], ['html']);
+  gulp.watch (['src/img/'], ['images']);
 });
