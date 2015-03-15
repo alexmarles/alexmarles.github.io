@@ -1,31 +1,40 @@
 @import 'bootstrap'
 @import 'font-awesome'
 
-.navbar-inverse
-  padding-top: 0
-
-.circular
-  margin: 0 auto
-  width: 150px
-  height: 150px
-  border-radius: 75px
-  -webkit-border-radius: 75px
-  -moz-border-radius: 75px
-  background-size: 150px
-  &.user
-    background: #fff
-    color: #2c3e50
-  &.social
-    transition: background 0.25s ease
-    background-position: 0%
-    &.twitter
-      background: url(../images/twitter.png) no-repeat
-    &.linkedin
-      background: url(../images/linkedin.png) no-repeat
-    &.serious
-      background: url(../images/srs.png) no-repeat
-    &:hover
-      background-position: 100%
-  i.fa
-    margin-top: 40px
-
+.main
+  color: #2c3e50
+  font-size: 16px
+  text-align: center
+  padding: 5em
+  #header-image
+    img.circular
+      width: 150px
+      height: 150px
+      border-radius: 75px
+      -webkit-border-radius: 75px
+      -moz-border-radius: 75px
+      background-size: 150px
+  #about-me
+    margin-top: 3em
+  #social
+    margin-top: 3em
+    a.social-link
+      display: inline-block
+      color: grey
+      transition: color 0.5s ease
+      margin: 0 20px
+      &#github:hover
+        color: #333333
+      &#facebook:hover
+        color: #43609C
+      &#twitter:hover
+        color: #55ACEE
+      &#linkedin:hover
+        color: #0086B8
+      &#telegram:hover
+        color: #009DD9
+      &#email
+        margin-top: 1em
+        &:hover
+          color: #000
+          text-decoration: none

@@ -4,29 +4,31 @@ html
     meta(charset='utf-8')
     title Àlex Marlés
     link(rel='stylesheet', type='text/css', href='./style/application.css')
-    link(rel='stylesheet', type='text/css', href='./stanley/css/main.css')
+    
   body
-    .navbar.navbar-inverse.navbar-static-top
-      .container
-        .navbar-header
-          a.navbar-brand(href="/") Àlex Marlés
+    .container
+      .main.col-md-12
+        #header-image
+          img.circular(src="./images/alex.png")
+        #about-me
+          h4 About me
+          hr
+          p Hi! My name is Àlex and I'm a 25 yeard old web developer based in Barcelona area. I have a Computer Science Engineering Degree by Universitat Autònoma de Barcelona and I am currently working at Playfulbet, a social sports betting game. In my free time I like to grab a beer with my friends, watch TV shows, listen to music and enjoy a good FC Barcelona match. Also, I like to talk about it in my Twitter account, along with other nonsense tweets.
+          // p I started my path in web development around April 2011, when I joined i++ as a Padawan apprentice. It was a small but powerfull studio back then, where I learned how to craft web applications using Ruby on Rails, JavaScript and HTML5 technologies. In late 2012, we joined itnig ecosystem and some time later, as I finished my degree on Computer Science Engineering, my responsibilities at i++ became more important, my skills improved and my knowledge expanded.
+          // p After a year and a half leading projects and technology decisions I felt the need to face bigger challenges and take more important decisions, so I decided to step forward and join Playfulbet as a backend developer, where my decisions as a Software Engineer carry more important responsibilities and rewards.
 
-    #ww
-      .container
-        .row
-          .col-lg8.centered
-            .circular.user
-              i.fa.fa-user.fa-5x
-            h1 Coming soon...
-
-    .container.pt
-      .row.mt.centered
-        .col-lg-2.col-lg-offset-3
-          a(href="http://twitter.com/alexmarles", target="_blank")
-            .circular.social.twitter
-        .col-lg-2
-          a(href="https://www.linkedin.com/in/alexmarles", target="_blank")
-            .circular.social.linkedin
-        .col-lg-2
-          a(href="http://serious.io/alex", target="_blank")
-            .circular.social.serious
+        #social
+          h4 Social
+          hr
+          a.social-link#github(href="http://github.com/alexmarles", target="_blank")
+            i.fa.fa-github.fa-2x
+          a.social-link#facebook(href="http://www.facebook.com/alexmaral", target="_blank")
+            i.fa.fa-facebook.fa-2x
+          a.social-link#twitter(href="http://twitter.com/alexmarles", target="_blank")
+            i.fa.fa-twitter.fa-2x
+          a.social-link#linkedin(href="https://www.linkedin.com/in/alexmarles", target="_blank")
+            i.fa.fa-linkedin.fa-2x
+          a.social-link#telegram(href="http://telegram.me/alexmarles", target="_blank")
+            i.fa.fa-paper-plane.fa-2x
+          br
+          a.social-link#email(href="mailto:alex@alexmarles.com", target="_blank") alex@alexmarles.com
