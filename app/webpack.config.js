@@ -6,7 +6,7 @@ const cssModules        = 'modules&importLoaders=1&localIdentName=[name]__[local
 
 const config = {
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['.js', '.jsx']
   },
 
   entry: {
@@ -33,7 +33,7 @@ const config = {
 
   plugins: [
     new HtmlWebpackPlugin({ template: './src/assets/index.html' }),
-    new ExtractTextPlugin('style.css', { allChunks: true })
+    new ExtractTextPlugin({ filename: 'style.css', allChunks: true })
   ]
 }
 
