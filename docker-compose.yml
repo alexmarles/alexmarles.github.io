@@ -1,0 +1,9 @@
+alexmarles:
+  build: .
+  command: 'npm start'
+  environment:
+    - PORT=$DOCKER_PORT
+  ports:
+    - '$DOCKER_PORT:$DOCKER_PORT'
+  volumes:
+    - ./app:/srv/www/alexmarles
