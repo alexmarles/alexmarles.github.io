@@ -1,0 +1,19 @@
+{
+  "name": "alexmarles.com",
+  "version": "1.0.0",
+  "description": "My personal webpage",
+  "main": "bundle/bundle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexmarles/alexmarles.github.io.git"
+  },
+  "author": "Alex Marles <alex@alexmarles.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexmarles/alexmarles.github.io/issues"
+  },
+  "homepage": "https://github.com/alexmarles/alexmarles.github.io#readme"
+}
