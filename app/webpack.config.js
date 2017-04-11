@@ -9,9 +9,7 @@ const config = {
     extensions: ['.js', '.jsx']
   },
 
-  entry: {
-    app: ['./src/index.jsx']
-  },
+  entry: './src/index.jsx',
   output: {
     path: path.resolve(__dirname, 'build'),
     publicPath: '/',
@@ -19,8 +17,8 @@ const config = {
   },
 
   module: {
-    loaders: [
-      { test: /\.(js|jsx)$/, exclude: /node_modules/, loaders: ['babel'] },
+    rules: [
+      { test: /\.(jsx?)$/, exclude: /node_modules/, loader: 'babel-loader' },
       { test: /\.css$/, exclude: /node_modules/, loader: `style-loader!css-loader?${cssModules}` }
     ]
   },
@@ -32,8 +30,8 @@ const config = {
   },
 
   plugins: [
-    new HtmlWebpackPlugin({ template: './src/assets/index.html' }),
-    new ExtractTextPlugin({ filename: 'style.css', allChunks: true })
+    new HtmlWebpackPlugin({ template: './src/assets/index.html', filename: 'index.html', inject: 'body' }),
+    new ExtractTextPlugin({ filename: 'style.css', disable: false, allChunks: true })
   ]
 }
 
