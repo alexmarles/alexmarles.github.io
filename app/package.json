@@ -1,13 +1,12 @@
 {
-  "name": "alexmarles.com",
+  "name": "alexmarles",
   "version": "1.0.0",
   "description": "My personal webpage",
   "main": "bundle/bundle.js",
   "scripts": {
     "build": "webpack --colors",
     "serve": "webpack-dev-server --content-base build/ --colors --progress --hot",
-    "start": "npm run build && npm run serve",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run build && npm run serve"
   },
   "repository": {
     "type": "git",
@@ -20,10 +19,9 @@
   },
   "homepage": "https://github.com/alexmarles/alexmarles.github.io#readme",
   "devDependencies": {
-    "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-loader": "^6.4.1",
-    "babel-preset-latest": "^6.24.1",
+    "babel-preset-env": "^1.3.3",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.0",
     "eslint": "^3.19.0",
@@ -33,5 +31,10 @@
     "style-loader": "^0.16.1",
     "webpack": "^2.3.3",
     "webpack-dev-server": "^2.4.2"
+  },
+  "dependencies": {
+    "normalize-css": "^2.3.1",
+    "react": "^15.5.3",
+    "react-dom": "^15.5.3"
   }
 }
