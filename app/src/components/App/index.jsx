@@ -1,12 +1,21 @@
 import React, { Component } from 'react'
+import { BrowserRouter, Route } from 'react-router-dom'
 import 'normalize-css'
+
+import Main from '../Main'
+import Code from '../Code'
+import Photo from '../Photo'
 
 class App extends Component {
   render () {
     return (
-      <div>
-        <h1>React Webpage</h1>
-      </div>
+      <BrowserRouter>
+        <div>
+          <Route exact path='/' component={Main} />
+          <Route path='/code' component={Code} />
+          <Route path='/photo' component={Photo} />
+        </div>
+      </BrowserRouter>
     )
   }
 }
