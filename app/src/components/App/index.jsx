@@ -6,6 +6,8 @@ import Main from '../Main'
 import Code from '../Code'
 import Photo from '../Photo'
 
+import styles from './app.scss'
+
 class App extends Component {
   render () {
     return (

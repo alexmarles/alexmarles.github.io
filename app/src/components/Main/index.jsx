@@ -1,13 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import styles from './main.scss'
+
 const Main = () => {
   return (
-    <div>
-      <h1>Main</h1>
-      <Link to='/code'>Code</Link>
-      &nbsp;/&nbsp;
-      <Link to='/photo'>Photo</Link>
+    <div className={styles.root}>
+      <Link className={styles.link} to='/code'>Code</Link>
+      <div className={styles.separator} />
+      <Link className={styles.link} to='/photo'>Photo</Link>
     </div>
   )
 }

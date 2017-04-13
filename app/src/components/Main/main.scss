@@ -1,0 +1,50 @@
+.root {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.link {
+  display: block;
+  background-color: #F5D04C;
+  color: #3B7D82;
+  padding: 0.1em 0.5em;
+  font-size: 2em;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  margin: auto;
+  text-transform: uppercase;
+
+  &:hover {
+    color: #F5D04C;
+    background-color: #3B7D82;
+  }
+}
+
+.separator {
+  width: 60%;
+  height: 1px;
+  background-color: #3B7D82;
+
+  @media screen and (min-width: 768px) {
+    width: 1px;
+    height: 60%;
+  }
+}
