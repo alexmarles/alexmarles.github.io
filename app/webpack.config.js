@@ -19,7 +19,8 @@ const config = {
   module: {
     rules: [
       { test: /\.(jsx?)$/, exclude: /node_modules/, loader: 'babel-loader' },
-      { test: /\.css$/, exclude: /node_modules/, loader: `style-loader!css-loader?${cssModules}` }
+      { test: /\.css$/, exclude: /node_modules/, loader: `style-loader!css-loader?${cssModules}!resolve-url-loader` },
+      { test: /\.scss$/, exclude: /node_modules/, loader: `style-loader!css-loader?${cssModules}!resolve-url-loader!sass-loader?sourceMap` }
     ]
   },
 
